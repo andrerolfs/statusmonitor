@@ -1,5 +1,6 @@
 package de.wartbar.html;
 
+import de.wartbar.common.HTMLToolBox;
 import de.wartbar.common.WartbarBase;
 
 import java.util.HashMap;
@@ -103,7 +104,7 @@ public class PrefixEditor extends WartbarBase {
 							.append(HTML.label(key, key))
 							.append(HTML.tdEnd())
 							.append(HTML.tdBegin(""))
-							.append(HTML.input("text", key, key,map.get(key)))
+							.append(HTML.input("text", key, key, HTMLToolBox.htmlEncode(map.get(key))))
 							.append(HTML.tdEnd())
 							.append(HTML.trEnd());
 		}

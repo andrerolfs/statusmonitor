@@ -19,4 +19,12 @@ public class StatusController extends de.wartbar.common.WartbarBase{
 		}
 	}
 
+	@GetMapping("/update")
+	public String updateGet() {
+		logger.info("StatusController.updateGet");
+		synchronized (Sync.SYNC_POINT) {
+			return "true";
+		}
+	}
+
 }

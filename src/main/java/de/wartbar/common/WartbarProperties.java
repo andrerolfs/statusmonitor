@@ -25,6 +25,9 @@ public class WartbarProperties {
 			setProperty("Info Tool A", "j", "3");
 			setProperty("Info Tool A", "k", "-1");
 			setProperty("Info Tool A", "w", "some string");
+			setProperty("Info Tool A", "selectPrefix", "<a href=\"http://localhost:8080/selectPrefix\">selectPrefix</a>");
+
+
 
 			setProperty("Unit Test Info Tool B", "Executed", "77");
 			setProperty("Unit Test Info Tool B", "Passed", "67");

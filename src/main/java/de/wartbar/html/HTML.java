@@ -54,7 +54,7 @@ public class HTML extends WartbarBase {
 	}
 
 	public static String input(String type, String id, String name, String value) {
-		return "<input type=\"" + type + "\" id=\"" + id + "\" name=\"" + name + "\" value=\"" + value + "\">" + nl;
+		return "<input size=\"60\" type=\"" + type + "\" id=\"" + id + "\" name=\"" + name + "\" value=\"" + value + "\">" + nl;
 	}
 
 	public static String br() {
