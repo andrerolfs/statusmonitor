@@ -9,4 +9,9 @@ public class HTMLToolBox {
 						.replace("\"", "&quot;")
 						.replace(">", "&gt;");
 	}
+
+	public static String whitespaceToUnderscore(String input) {
+		return input
+						.replace(" ", "_");
+	}
 }

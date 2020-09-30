@@ -1,22 +1,19 @@
 package de.wartbar.main;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.CacheControl;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.concurrent.TimeUnit;
 
+@EnableAutoConfiguration
+@ComponentScan(basePackages="de.wartbar.controller")
 @SpringBootApplication
 public class App implements WebMvcConfigurer {
-
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		// Register resource handler for images
-		registry.addResourceHandler("/webapp/WEB-INF/images/**").addResourceLocations("/WEB-INF/images/")
-						.setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
-	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(App.class, args);

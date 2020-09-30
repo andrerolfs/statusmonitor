@@ -1,5 +1,6 @@
-package de.wartbar.html;
+package de.wartbar.view.basic;
 
+import de.wartbar.common.HTMLToolBox;
 import de.wartbar.common.WartbarBase;
 import java.util.HashMap;
 import java.util.List;
@@ -7,11 +8,11 @@ import java.util.List;
 public class HTML extends WartbarBase {
 
 	public static String label(String label, String for_id) {
-		return "<label for=\"" + for_id + "\">" + label + "</label>" + nl;
+		return "<label for=\"" + HTMLToolBox.whitespaceToUnderscore(for_id) + "\">" + label + "</label>" + nl;
 	}
 
 	public static String htmlBegin() {
-		return "<html>" + nl;
+		return "<html lang=\"en\">" + nl;
 	}
 	public static String htmlEnd() {
 		return "</html>" + nl;
@@ -54,11 +55,11 @@ public class HTML extends WartbarBase {
 	}
 
 	public static String input(String type, String id, String name, String value) {
-		return "<input size=\"60\" type=\"" + type + "\" id=\"" + id + "\" name=\"" + name + "\" value=\"" + value + "\">" + nl;
+		return "<input size=\"60\" type=\"" + type + "\" id=\"" + HTMLToolBox.whitespaceToUnderscore(id) + "\" name=\"" + name + "\" value=\"" + value + "\">" + nl;
 	}
 
 	public static String br() {
-		return "</br>" + nl;
+		return "<br/>" + nl;
 	}
 	public static String H1(String name) {
 		return "<H1>" + name + "</H1>" +nl;
@@ -68,7 +69,7 @@ public class HTML extends WartbarBase {
 		return "<title>" + title + "</title>" + nl;
 	}
 	public static String tableBegin(String id) {
-		return "<table id=\"" + id + "\">" + nl;
+		return "<table id=\"" + HTMLToolBox.whitespaceToUnderscore(id) + "\">" + nl;
 	}
 
 	public static String tableEnd() {
@@ -83,7 +84,10 @@ public class HTML extends WartbarBase {
 	}
 
 	public static String tdBegin(String id) {
-		return "<td id=\"" + id + "\">" + nl;
+		return "<td id=\"" + HTMLToolBox.whitespaceToUnderscore(id) + "\">" + nl;
+	}
+	public static String tdBegin(String id, int colspan) {
+		return "<td id=\"" + id + "\" colspan=\"" + colspan + "\">" + nl;
 	}
 	public static String tdEnd() {
 		return "</td>" + nl;
@@ -96,33 +100,13 @@ public class HTML extends WartbarBase {
 		return "</head>" + nl;
 	}
 
-	public static String tile(String prefix, HashMap<String,String> prefixContent, List<String> propertyOrder) {
-		String content = "<td id=\"inner\">" + nl +
-					  "<table width=100%>" + nl +
-						"  <tr>" + nl +
-						"    <td>" + prefix + "</td>" + nl +
-						"  </tr>" + nl +
-						"  <tr>" + nl +
-						"    <td><hr></td>" + nl +
-						"  </tr>" + nl +
-						"</table>" + nl +
-						"<table>" + nl;
-
-		for (String key : propertyOrder) {
-			if (prefixContent.containsKey(key)) {
-				content += "<tr>" + nl +
-								"<td>" + key + "</td>" + nl +
-								"<td>&nbsp;</td>" + nl +
-								"<td>" + prefixContent.get(key) + "</td>" + nl +
-								"</tr>" + nl;
-			}
-		}
-
-		content += "</td>" + nl;
-		content += "</table>" + nl;
-
-		return content;
+	public static String styleBegin() {
+		return "<style>" + nl;
 	}
+	public static String styleEnd() {
+		return "</style>" + nl;
+	}
+
 
 	public static String a(String text, String link) {
 		return "<a href=\"" + link + "\">" + text + "</a>" + nl;

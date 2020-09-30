@@ -1,10 +1,10 @@
 package de.wartbar.common;
 
-public class Pair<T> {
+public class WartbarPair<T> {
     private T key;
     private T value;
 
-    public Pair(T key, T value) {
+    public WartbarPair(T key, T value) {
         this.key = key;
         this.value = value;
     }

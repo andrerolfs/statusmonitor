@@ -3,14 +3,13 @@ package de.wartbar.common;
 import org.springframework.web.util.UriUtils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class URLToolbox {
 
-	public static List<Pair<String>> decodeBody(String body) {
-		List<Pair<String>> list = new ArrayList<>();
+	public static List<WartbarPair<String>> decodeBody(String body) {
+		List<WartbarPair<String>> list = new ArrayList<>();
 		String[] parts = body.split("&");
 
 		for (String pair : parts) {
@@ -24,16 +23,16 @@ public class URLToolbox {
 				continue;
 			}
 
-			list.add(new Pair<>(decodeUrlParameter(splitPair[0]), decodeUrlParameter(splitPair[1])));
+			list.add(new WartbarPair<>(decodeUrlParameter(splitPair[0]), decodeUrlParameter(splitPair[1])));
 		}
 		return list;
 	}
 
-	public static List<Pair<String>> decodeBody(Map<String,String> body) {
-		List<Pair<String>> list = new ArrayList<>();
+	public static List<WartbarPair<String>> decodeBody(Map<String,String> body) {
+		List<WartbarPair<String>> list = new ArrayList<>();
 
 		for (String key : body.keySet()) {
-			list.add(new Pair<>(decodeUrlParameter(key), decodeUrlParameter(body.get(key))));
+			list.add(new WartbarPair<>(decodeUrlParameter(key), decodeUrlParameter(body.get(key))));
 		}
 
 		return list;

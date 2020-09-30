@@ -7,9 +7,9 @@
  */
 
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '2.0.5.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+  id 'java'
+  id 'org.springframework.boot' version '2.3.2.RELEASE'
+  id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 
 repositories {
@@ -21,22 +21,33 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-dependencies:2.0.5.RELEASE'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.google.code.gson:gson:2.8.6'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  components {
+      withModule('org.springframework:spring-beans') {
+          allVariants {
+              withDependencyConstraints {
+                  // Need to patch constraints because snakeyaml is an optional dependency
+                  it.findAll { it.name == 'snakeyaml' }.each { it.version { strictly '1.19' } }
+              }
+          }
+      }
+  }
 
-    components {
-        withModule('org.springframework:spring-beans') {
-            allVariants {
-                withDependencyConstraints {
-                    // Need to patch constraints because snakeyaml is an optional dependency
-                    it.findAll { it.name == 'snakeyaml' }.each { it.version { strictly '1.19' } }
-                }
-            }
-        }
-    }
+  implementation 'org.springframework.boot:spring-boot-dependencies:2.0.5.RELEASE'
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  implementation 'com.google.code.gson:gson:2.8.6'
+  implementation 'org.springframework.boot:spring-boot-starter'
+
+  testImplementation('org.springframework.boot:spring-boot-starter-test') {
+    exclude group: 'junit', module: 'junit'
+    exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+  }
+
+  testImplementation('org.junit.jupiter:junit-jupiter:5.7.0')
+}
+
+test {
+  useJUnitPlatform()
 }
 
 bootJar {
