@@ -8,7 +8,7 @@ A [Spring Boot](https://spring.io/projects/spring-boot) service to create such H
 <br/>
 <img src="https://www.dropbox.com/s/h8qrjleinlpiizo/linklist.jpeg?raw=1" alt="Link List to use Status Monitor manually">
 <br/>
-<img src="https://www.dropbox.com/s/ph4s0rd5efv16n7/editproperty.jpeg?dl=0" alt="How to edit a property manually">
+<img src="https://www.dropbox.com/s/ph4s0rd5efv16n7/editproperty.jpeg?raw=1" alt="How to edit a property manually">
 <br/>
 <img src="https://www.dropbox.com/s/8wfz7kwwp5uy3du/editlevel.jpeg?raw=1" alt="How to edit a level manually">
 
