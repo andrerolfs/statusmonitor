@@ -12,6 +12,22 @@ A [Spring Boot](https://spring.io/projects/spring-boot) service to create such H
 <br/>
 <img src="https://www.dropbox.com/s/8wfz7kwwp5uy3du/editlevel.jpeg?raw=1" alt="How to edit a level manually">
 
+## What It Does
+
+Statusmonitor is a service where you can send key-value properties via HTTP to display them in tiles, which are called sections.
+
+A section can has sub sections, a property has always section-subsection-key-value.
+
+Statusmonitor displays the sections in the order their properties were changed, the latest changed section is displayed in the left upper corner
+and from there left to right, top down.
+
+Statusmonitor can have any amount of pages, they are called levels.
+
+A level has a number and a background pattern.
+
+A section has a level and a background color
+
+You can change the level and background color of a section while setting a property. This enables you e.g. to alert the user by putting a section to level 1 and setting its background color red.
 
 ## How To Compile
 
@@ -24,3 +40,7 @@ A [Spring Boot](https://spring.io/projects/spring-boot) service to create such H
 ## Start URL
 
 `http://localhost:8080/links`
+
+## Yes, So Much Documentation Is Missing ...
+
+... please forgive me, I will add more when there is time for it ...
