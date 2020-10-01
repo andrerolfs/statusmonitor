@@ -33,11 +33,11 @@ You can change the level and background color of a section while setting a prope
 
 Imagine you want to show the status of your system test execution runs.
 
-Some are passed (green), some are ongoing (blue), some have already failed tests or finished failed (orange) and in one run a special problems occured where manual help is needed (fire brick red).
+Some are passed (green), some are ongoing (blue), some have already failed tests or finished failed (orange) and in one run a special problem has occured where manual help is needed (fire brick red).
 
 This is how your run status information could be presented :
 
-<img src="https://www.dropbox.com/s/ian8wdq1paz71rs/showcase1.jpeg?raw=1" alt="Status Monitor For Test Execution">
+<img src="https://www.dropbox.com/s/h1yxr5vyiqx0yrr/showcase2.jpeg?raw=1" alt="Status Monitor For Test Execution">
 <br/>
 
 ## How To Compile
