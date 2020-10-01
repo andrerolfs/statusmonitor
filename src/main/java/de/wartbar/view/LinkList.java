@@ -39,6 +39,8 @@ public class LinkList {
 						.append(HTML.br())
 						.append(HTML.a("Status Monitor Level 8", "http://localhost:8080/statusmonitor?Level=8"))
 						.append(HTML.br())
+						.append(HTML.a("Status Monitor Level 9", "http://localhost:8080/statusmonitor?Level=9"))
+						.append(HTML.br())
 						.append(HTML.br());
 
 		return contentBuilder.toString();

@@ -14,6 +14,7 @@ public class DemoValues {
 		WartbarApplication.setLevel(5, "Level 5", 5);
 		WartbarApplication.setLevel(6, "Level 6", 6);
 		WartbarApplication.setLevel(7, "Level 7", 7);
+		WartbarApplication.setLevel(9, "System Test Status", 7);
 
 		WartbarSection section = WartbarApplication.putIfAbsent("Info Tool A", 1);
 		section.putProperty("BackgroundColor", "1", "red FF0000");
@@ -40,7 +41,7 @@ public class DemoValues {
 		section.setTileBackground(3);
 
 		section = WartbarApplication.putIfAbsent("Uptime Tool D", 1);
-		section.putProperty("BackgroundColor", "2", "dark green 006400");
+		section.putProperty("BackgroundColor", "4", "dark green 006400");
 		section.putProperty("Current", "Started", "20200914");
 		section.putProperty("Current", "Uptime", "19H17M15S");
 		section.putProperty("Last", "Started", "20200823");
@@ -155,6 +156,65 @@ public class DemoValues {
 		section.putProperty("Values", "j", "3");
 		section.putProperty("Values", "k", "-1");
 		section.setTileBackground(15);
+
+
+		// nice showcase
+
+		// 7 fire brick
+		// 4 dark green
+		// 3 blue
+		// 5 dark orange
+
+		section = WartbarApplication.putIfAbsent("Test Run 21", 9);
+		section.putProperty("Run Status", "2", "Ongoing");
+		section.putProperty("Test Status", "Finished", "29");
+		section.putProperty("Test Status", "ToDo", "12");
+		section.putProperty("Test Status", "Failed", "4");
+		section.setTileBackground(5);
+
+		section = WartbarApplication.putIfAbsent("Test Run 16", 9);
+		section.putProperty("Run Status", "1", "Finished");
+		section.putProperty("Test Status", "Finished", "63");
+		section.putProperty("Test Status", "ToDo", "0");
+		section.putProperty("Test Status", "Failed", "0");
+		section.setTileBackground(4);
+
+		section = WartbarApplication.putIfAbsent("Test Run 7", 9);
+		section.putProperty("Run Status", "1", "Finished");
+		section.putProperty("Test Status", "Finished", "32");
+		section.putProperty("Test Status", "ToDo", "0");
+		section.putProperty("Test Status", "Failed", "4");
+		section.setTileBackground(5);
+
+		section = WartbarApplication.putIfAbsent("Test Run 18", 9);
+		section.putProperty("Run Status", "1", "Finished");
+		section.putProperty("Test Status", "Finished", "63");
+		section.putProperty("Test Status", "ToDo", "0");
+		section.putProperty("Test Status", "Failed", "0");
+		section.setTileBackground(4);
+
+
+		section = WartbarApplication.putIfAbsent("Test Run 22", 9);
+		section.putProperty("Run Status", "2", "Ongoing");
+		section.putProperty("Test Status", "Finished", "28");
+		section.putProperty("Test Status", "ToDo", "15");
+		section.putProperty("Test Status", "Failed", "0");
+		section.setTileBackground(3);
+
+		section = WartbarApplication.putIfAbsent("Test Run 17", 9);
+		section.putProperty("Run Status", "1", "Finished");
+		section.putProperty("Test Status", "Finished", "42");
+		section.putProperty("Test Status", "ToDo", "0");
+		section.putProperty("Test Status", "Failed", "0");
+		section.setTileBackground(4);
+
+		section = WartbarApplication.putIfAbsent("Test Run 19", 9);
+		section.putProperty("Run Status", "3", "On Hold");
+		section.putProperty("Problem Status", "333", "Major Incident - Needs Help");
+		section.putProperty("Test Status", "Finished", "37");
+		section.putProperty("Test Status", "ToDo", "15");
+		section.putProperty("Test Status", "Failed", "8");
+		section.setTileBackground(7);
 
 	}
 }
