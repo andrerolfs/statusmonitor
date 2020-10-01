@@ -29,7 +29,7 @@ A section has a level and a background color
 
 You can change the level and background color of a section while setting a property. This enables you e.g. to alert the user by putting a section to level 1 and setting its background color red.
 
-## Showcase for Test Execution
+## Showcase System Test Execution
 
 Imagine you want to show the status of your system test execution runs.
 
