@@ -89,4 +89,23 @@ public class WartbarApplication {
 		sections.clear();
 	}
 
+	public static HashMap<String, String> cloneSubSection(String sectionName, String subSectionName) {
+		WartbarSection section = sections.putIfAbsent(sectionName, null);
+
+		if (section == null) {
+			return null;
+		}
+
+		return section.cloneSubSection(subSectionName);
+	}
+
+	public static void removeSubSection(String sectionName, String subSectionName) {
+		WartbarSection section = sections.putIfAbsent(sectionName, null);
+
+		if (section == null) {
+			return;
+		}
+
+		section.removeSubSection(subSectionName);
+	}
 }

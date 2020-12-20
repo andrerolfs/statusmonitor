@@ -18,8 +18,17 @@ public class WartbarSuperMap<K,V> {
 	public WartbarSuperMap() {}
 
 	public void clear() {
-		map.clear();
-		deque.clear();
+		synchronized (syncObject) {
+			map.clear();
+			deque.clear();
+		}
+	}
+
+	public int size() {
+		synchronized (syncObject) {
+			logger.info("size");
+			return map.size();
+		}
 	}
 
 	public void setMaxObjectsStored(int maxObjectsStored) {
@@ -81,6 +90,23 @@ public class WartbarSuperMap<K,V> {
 					deque.addFirst(key);
 				}
 				return receivedValue;
+			}
+		}
+	}
+
+	public void remove(K key) {
+		logger.info("remove " + key);
+		synchronized (syncObject) {
+			map.remove(key);
+
+			ArrayDeque<K> localDeque = new ArrayDeque<>(deque);
+			deque.clear();
+			Iterator<K> iter = localDeque.iterator();
+
+			while (iter.hasNext()) {
+				if (key != iter.next()) {
+					deque.add(key);
+				}
 			}
 		}
 	}

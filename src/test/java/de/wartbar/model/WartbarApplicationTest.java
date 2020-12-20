@@ -75,11 +75,52 @@ public class WartbarApplicationTest {
 		WartbarSection sectionReceived = sectionMap.get("section1testPutProperty");
 		HashMap<String, WartbarSubSection> subSectionMap = sectionReceived.cloneSubSectionMap();
 
-    assert subSectionMap.size() == 2;
+		assert subSectionMap.size() == 2;
 		assert subSectionMap.containsKey("subsection1");
 		assert subSectionMap.containsKey("subsection2");
 		assert subSectionMap.get("subsection1").cloneMap().size() == 2;
 		assert subSectionMap.get("subsection2").cloneMap().size() == 1;
+	}
+
+	@Tag("DEV")
+	@Test
+	void testCloneRemoveSubSection() {
+		System.out.println("testCloneRemoveSubSection");
+		WartbarApplication.clear();
+		WartbarSection section = WartbarApplication.putIfAbsent("section1",1);
+		section.putProperty("subsection1", "key11", "value11");
+		section.putProperty("subsection1", "key12", "value12");
+		section.putProperty("subsection2", "key21", "value21");
+		section.putProperty("subsection2", "key22", "value22");
+		section.putProperty("subsection3", "key31", "value31");
+		section.putProperty("subsection3", "key32", "value32");
+
+		assert section.cloneSubSectionMap().size() == 3;
+
+		HashMap<String, String> subsectionClonedMap =
+						WartbarApplication.cloneSubSection(
+										"section1",
+										"subsection2");
+
+		assert subsectionClonedMap.size() == 2;
+		assert subsectionClonedMap.containsKey("key21");
+		assert subsectionClonedMap.containsKey("key22");
+		assert subsectionClonedMap.get("key21").equals("value21");
+		assert subsectionClonedMap.get("key22").equals("value22");
+
+		section.removeSubSection("subsection2");
+
+		assert section.size() == 2;
+		assert section.cloneSubSectionMap().size() == 2;
+
+		HashMap<String, String> subsectionClonedMap2 =
+						WartbarApplication.cloneSubSection(
+										"section1",
+										"subsection2");
+
+		assert subsectionClonedMap2.size() == 0;
+
+		assert section.cloneSubSectionMap().size() == 3;
 	}
 
 	@AfterEach

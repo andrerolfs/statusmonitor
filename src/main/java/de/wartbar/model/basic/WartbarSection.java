@@ -75,6 +75,29 @@ public class WartbarSection extends WartbarBase {
 		return subSectionMap.cloneMap();
 	}
 
+	public HashMap<String, String> cloneSubSection(String subsectionName) {
+		synchronized (syncObject) {
+			logger.info("cloneSubSection " + subsectionName);
+			WartbarSubSection subSection = subSectionMap.putIfAbsent(subsectionName, new WartbarSubSection());
+			return subSection.cloneMap();
+		}
+	}
+
+	public void removeSubSection(String subsectionName) {
+		synchronized (syncObject) {
+			logger.info("removeSubSection " + subsectionName);
+			subSectionMap.remove(subsectionName);
+		}
+	}
+
+	public int size() {
+		synchronized (syncObject) {
+			logger.info("size");
+			return subSectionMap.size();
+		}
+	}
+
+
 	public HashMap<String, String> cloneUrlMap() {
 		return urlMap.cloneMap();
 	}
